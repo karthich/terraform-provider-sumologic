@@ -8,7 +8,6 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
-	"github.com/hashicorp/terraform/helper/acctest"
 )
 
 func TestAccSumologicToken_basic(t *testing.T) {
@@ -56,7 +55,7 @@ func TestAccSumologicToken_create(t *testing.T) {
 					resource.TestCheckResourceAttr("sumologic_token.test", "description", testDescription),
 					resource.TestCheckResourceAttr("sumologic_token.test", "status", testStatus),
 					resource.TestCheckResourceAttr("sumologic_token.test", "type", testType),
-					resource.TestCheckResourceAttr("sumologic_token.test", "version", 0),
+					resource.TestCheckResourceAttr("sumologic_token.test", "version", "0"),
 				),
 			},
 		},
@@ -129,7 +128,7 @@ func TestAccSumologicToken_update(t *testing.T) {
 					resource.TestCheckResourceAttr("sumologic_token.test", "discription", testDescription),
 					resource.TestCheckResourceAttr("sumologic_token.test", "status", testStatus),
 					resource.TestCheckResourceAttr("sumologic_token.test", "type", testType),
-					resource.TestCheckResourceAttr("sumologic_token.test", "version", 0),
+					resource.TestCheckResourceAttr("sumologic_token.test", "version", "0"),
 				),
 			},
 			{
@@ -141,7 +140,7 @@ func TestAccSumologicToken_update(t *testing.T) {
 					resource.TestCheckResourceAttr("sumologic_token.test", "description", testUpdatedDescription),
 					resource.TestCheckResourceAttr("sumologic_token.test", "status", testUpdatedStatus),
 					resource.TestCheckResourceAttr("sumologic_token.test", "type", testType),
-					resource.TestCheckResourceAttr("sumologic_token.test", "version", 1),
+					resource.TestCheckResourceAttr("sumologic_token.test", "version", "1"),
 				),
 			},
 		},
@@ -189,7 +188,7 @@ func testAccCheckTokenAttributes(name string) resource.TestCheckFunc {
 			resource.TestCheckResourceAttrSet(name, "description"),
 			resource.TestCheckResourceAttrSet(name, "status"),
 			resource.TestCheckResourceAttrSet(name, "type"),
-			resource.TestCheckResourceAttrSet(name, "version")
+			resource.TestCheckResourceAttrSet(name, "version"),
 		)
 		return f(s)
 	}
