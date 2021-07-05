@@ -26,6 +26,7 @@ func testAccDataSourceAdminRecommendedFolderCheck(name string) resource.TestChec
 		resource.TestCheckResourceAttrSet(name, "id"),
 		resource.TestCheckResourceAttr(name, "name", "Admin Recommended"),
 		resource.TestCheckResourceAttrSet(name, "description"),
+		resource.TestCheckResourceAttr(name, "isAdminMode", true),
 	)
 }
 

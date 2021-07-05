@@ -25,6 +25,11 @@ func dataSourceSumologicAdminRecommendedFolder() *schema.Resource {
 				Optional: true,
 				Computed: true,
 			},
+			"isAdminMode": {
+				Type:      schema.TypeString,
+				Optional:  true,
+				Computed:  true,
+			}
 		},
 		Timeouts: &schema.ResourceTimeout{
 			Read: schema.DefaultTimeout(1 * time.Minute),
@@ -44,6 +49,7 @@ func dataSourceSumologicAdminRecommendedFolderRead(d *schema.ResourceData, meta 
 	d.SetId(adminRecommendedFolder.ID)
 	d.Set("name", adminRecommendedFolder.Name)
 	d.Set("description", adminRecommendedFolder.Description)
+	d.Set("isAdminMode", true)
 
 	return nil
 }
