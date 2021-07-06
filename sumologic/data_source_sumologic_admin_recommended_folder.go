@@ -29,7 +29,7 @@ func dataSourceSumologicAdminRecommendedFolder() *schema.Resource {
 				Type:      schema.TypeString,
 				Optional:  true,
 				Computed:  true,
-			}
+			},
 		},
 		Timeouts: &schema.ResourceTimeout{
 			Read: schema.DefaultTimeout(1 * time.Minute),
